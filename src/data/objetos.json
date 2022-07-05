@@ -1,0 +1,27 @@
+[
+    {
+      "nombre": "Objeto 1",
+      "id": 1,
+      "descrip": "Rojo",
+      "precio": 10
+    },
+    {
+      "nombre": "Objeto 2",
+      "id": 2,
+      "descrip": "Negro",
+      "precio": 50
+    },
+    {
+      "nombre": "Objeto 3",
+      "id": 3,
+      "descrip": "Verde",
+      "precio": 20
+    },
+    {
+      "nombre": "Objeto 4",
+      "id": 4,
+      "descrip": "Azul",
+      "precio": 25
+    }
+  ]
+  
