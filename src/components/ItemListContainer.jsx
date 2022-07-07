@@ -6,7 +6,7 @@ import {FaTruckLoading} from 'react-icons/fa'
 const promesa = new Promise((res, rej) => {
     setTimeout(() => {
       res(objetos);
-    }, 2500);
+    }, 2000);
   });
 
 export default function ItemListContainer() {
