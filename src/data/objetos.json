@@ -1,27 +1,60 @@
+
 [
     {
       "nombre": "Objeto 1",
       "id": 1,
-      "descrip": "Rojo",
+      "img": "https://i.imgur.com/NWZw9EU.png",
+      "descrip": "Descripción del objeto 1",
       "precio": 10
     },
     {
       "nombre": "Objeto 2",
       "id": 2,
-      "descrip": "Negro",
+      "img": "https://i.imgur.com/NWZw9EU.png",
+      "descrip": "Descripción del objeto 2",
       "precio": 50
     },
     {
       "nombre": "Objeto 3",
       "id": 3,
-      "descrip": "Verde",
+      "img": "https://i.imgur.com/NWZw9EU.png",
+      "descrip": "Descripción del objeto 3",
       "precio": 20
     },
     {
       "nombre": "Objeto 4",
       "id": 4,
-      "descrip": "Azul",
+      "img": "https://i.imgur.com/NWZw9EU.png",
+      "descrip": "Descripción del objeto 4",
       "precio": 25
+    },
+    {
+      "nombre": "Objeto 5",
+      "id": 5,
+      "img": "https://i.imgur.com/NWZw9EU.png",
+      "descrip": "Verde",
+      "precio": 20
+    },
+    {
+      "nombre": "Objeto 6",
+      "id": 6,
+      "img": "https://i.imgur.com/NWZw9EU.png",
+      "descrip": "Verde",
+      "precio": 20
+    },
+    {
+      "nombre": "Objeto 7",
+      "id": 7,
+      "img": "https://i.imgur.com/NWZw9EU.png",
+      "descrip": "Verde",
+      "precio": 20
+    },
+    {
+      "nombre": "Objeto 8",
+      "id": 8,
+      "img": "https://i.imgur.com/NWZw9EU.png",
+      "descrip": "Verde",
+      "precio": 20
     }
   ]
   

@@ -1,7 +1,7 @@
 import React from 'react'
-//import logo from '../../public/imagenes/Donna.png'
 import logo from '../imagenes/Donna.png'
 import CartWidget from './CartWidget'
+import {Link, NavLink} from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -10,23 +10,26 @@ const NavBar = () => {
   
         <div className='flex gap-6 w-full jusify-between items-baseline'>
 
-            <img className='flex flex-initial h-24 w-24 m-2' src={logo} alt=""/>
-            <h1 className='flex text-3xl justify-self-center self-start text-white w-12/12'>Tienda Online</h1>
+        <Link to="/" className='flex flex-initial h-24 w-24 m-2'> <img  src={logo} alt=""/></Link>
+        <Link to="/" className='flex text-3xl justify-self-center self-start text-white w-12/12'> <h1 >Tienda Online</h1> </Link>
             
             <ul className='flex gap-2 text-white font-bold'>
-                <li className='flex'>
-                    <a href="">Nosotros</a>
-                </li>
-                <li className='flex'>
-                    <a href="">Productos</a>
-                </li>
-                <li className='flex'>
-                    <a href="">Contactanos</a>
-                </li>
+                <Link to={`/Categorias/Nosotros`} ><li className='flex'>
+                    Nosotros
+                </li></Link>
+                <Link to={`/Categorias/Productos`} ><li className='flex'>
+                    Productos
+                </li></Link>
+                <Link to={`/Categorias/Contactanos`} ><li className='flex'>
+                    Contactanos
+                </li></Link>
             </ul>
+
+            <NavLink to="/Cart">
             <div>
                 <CartWidget />
             </div>
+            </NavLink>
                                         
         </div>
         
