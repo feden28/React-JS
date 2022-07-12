@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import objetos from "../data/objetos";
-import {FaTruckLoading} from 'react-icons/fa'
+import BounceLoader from 'react-spinners/BounceLoader'
 //import { useParams } from "react-router-dom";
 
 
@@ -30,7 +30,7 @@ const ItemListContainer = ({greeting}) => {
     return (
       <>
       <h1 className="m-2 text-black">{greeting}</h1>
-       <FaTruckLoading className="m-10" size={100}/>
+      <BounceLoader className='flex' color={'#9013FE'} loading={loading} cssOverride={{flex:'1', justifyContent:'center', alignItems:'center',textAlign:'center'}} size={100} />
       </>
     );
   }

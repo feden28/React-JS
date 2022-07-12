@@ -23,8 +23,7 @@ const ItemDetailContainer = ({greeting}) => {
 
     useEffect(() => {
         promesa.then((data) => {
-            const getData = data[idItem]
-            setProductos(getData)
+            setProductos(data.find((item) => item.id == idItem))
             setCargando(false)
         }).catch(() => {
             console.log('Lo sentimos ocurrió un error')
@@ -39,7 +38,9 @@ const ItemDetailContainer = ({greeting}) => {
     <>
         <h2 className="textDos">{greeting}</h2>
         <div key={productos.id} className='flex'>{cargando ? <DotLoader color={'#9013FE'} loading={cargando} size={50} cssOverride={{flex:'1', justifyContent:'center', alignItems:'center',textAlign:'center'}}  /> :
-        <ItemDetail   item={productos}/>}</div>
+       
+       
+       <ItemDetail   productos={productos}/>}</div>
         
     </>
     
