@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import objetos from "../data/objetos";
 import {FaTruckLoading} from 'react-icons/fa'
-import { useParams } from "react-router-dom";
+//import { useParams } from "react-router-dom";
 
 
 const promesa = new Promise((res, rej) => {
@@ -12,7 +12,7 @@ const promesa = new Promise((res, rej) => {
     }, 2000);
   });
 
-const ItemListContainer = () => {
+const ItemListContainer = ({greeting}) => {
 
   const [objetosList, setObjetosList] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -29,12 +29,13 @@ const ItemListContainer = () => {
   if (loading) {
     return (
       <>
+      <h1 className="m-2 text-black">{greeting}</h1>
        <FaTruckLoading className="m-10" size={100}/>
       </>
     );
   }
   return (
-    <div>
+    <div className="m-2">
       <ItemList objec={objetosList} />
     </div>
   );
