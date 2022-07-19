@@ -1,11 +1,16 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {Link} from "react-router-dom"
+import contexto from "../context/CartContext";
 
   
   export default function Item({ elem }) {
+
+    const resultado = useContext(contexto);
+
     return (
 
-      <Link onClick={elem.id} to= {`/Categorias/Productos/${elem.id}`} className= 'flex flex-col max-w-sm w-4/12 rounded overflow-hidden shadow-lg m-3 hover:bg-blue-100 justify-items-center items-center'>
+    
+      <Link to= {`/Categorias/Productos/${elem.id}`} className= 'flex flex-col max-w-sm w-4/12 rounded overflow-hidden shadow-lg m-3 hover:bg-blue-100 justify-items-center items-center'>
             <img className='resize w-10'src={elem.img}/>
             <div className='px-3 py-3'> {elem.nombre} </div>
                 <div className='font-bold text-xl m-a text-center'>
