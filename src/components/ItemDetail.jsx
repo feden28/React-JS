@@ -32,10 +32,17 @@ export const ItemDetail = ({productos}) => {
       <div className='px-6 py-4'>
 
         {finalized
-              ? <Link to="/cart">
-                <button className='rounded px-2 pb-0.5 bg-slate-800 text-white'>Finalizar compra</button>
+              ? 
+              <>
+                <Link to="/cart">
+                <button className='rounded my-2 mx-12 px-2 pb-0.5 bg-slate-800 text-white'>Finalizar compra</button>
                 </Link>
+                <Link to="/Categorias/Productos">
+                <button className='rounded px-2 mx-8 pb-0.5 bg-slate-800 text-white'>Continuar Comprando</button>
+                </Link>
+              </>
               : <ItemCount initial={1} stock={10} onAdd={onAdd} />}
+
           
         
       </div>

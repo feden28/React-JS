@@ -6,15 +6,19 @@ const CartWidget = () => {
 
   const { qtyProducts } = useContext(contexto);
  
+  const estilo = {
+    display: 'none'
+  }
+
   return (
-    <>
+    <div  className='flex'>
 
     <BiCartAlt className='text-white' size={20}/>
     
-    {qtyProducts === 0 ? <p/>  : <p>{qtyProducts}</p>}
+    {qtyProducts === 0 ? <p style={estilo}>{qtyProducts}</p>  : <p className='flex gap-1 text-white font-bold'>{qtyProducts}</p>}
     
        
-    </>
+    </div>
 
   )
 }
