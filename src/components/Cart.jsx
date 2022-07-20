@@ -23,6 +23,9 @@ const Cart = () => {
     <>
     {qtyProducts === 0 ?
                          <h1 className='flex gap-2 m-10 rounded px-2 pb-0.5 bg-slate-600 text-white'> Aún no tiene Productos en el Carrito, <Link className='underline underline-offset-2' to= "/Categorias/Productos">Continuar Comprando</Link></h1>:
+
+        
+    
       
      products.map(product => 
     
