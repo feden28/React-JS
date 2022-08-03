@@ -3,15 +3,9 @@ import {ItemDetail} from './ItemDetail'
 import objetos from "../data/objetos";
 import DotLoader from "react-spinners/DotLoader"
 import { useParams } from "react-router-dom"
+import { db } from '../firebase/firebase';
+import {getDoc, collection, doc} from "firebase/firestore";
 
-
-
-const promesa = new Promise((res, rej) => {
-
-    setTimeout(() => {
-      res(objetos);
-    }, 2000);
-  });
 
 const ItemDetailContainer = ({greeting}) => {
 
@@ -22,15 +16,36 @@ const ItemDetailContainer = ({greeting}) => {
     
 
     useEffect(() => {
-        promesa.then((data) => {
-            setProductos(data.find((item) => item.id == idItem))
-            setCargando(false)
-        }).catch(() => {
-            console.log('Lo sentimos ocurrió un error')
-        })
+        setCargando(false);
+        const productCollection = collection(db, 'productos');
+        const refDoc = doc(productCollection, idItem);
+        getDoc(refDoc)
+            .then(result => {
+                const producto = {
+                    id: result.id,
+                    ...result.data(),
+                }
+                setProductos(producto);
+            })
+        .catch(() => {
+            console.log('Lo sentimos ocurrió un error')})
+
+                        /*
+                        const promesa = new Promise((res, rej) => {
+
+                        setTimeout(() => {
+                            res(objetos);
+                        }, 2000);
+                            });
+
+                            promesa.then((data) => {
+                                setProductos(data.find((item) => item.id == idItem))
+                                setCargando(false)
+                            }).catch(() => {
+                                console.log('Lo sentimos ocurrió un error')
+                            })*/
     }, [idItem]);
 
-    console.log(productos)
 
     return (
 

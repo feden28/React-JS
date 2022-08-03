@@ -7,7 +7,16 @@ const { Provider } = contexto;
 const CustomProvider = ({children }) => {
 
     const [products, setProducts] = useState([]);
-    const [qtyProducts, setQtyProducts] = useState(0)
+    const [qtyProducts, setQtyProducts] = useState(0);
+    const [valueTotal, setValueTotal] = useState(0);
+
+    const getTotalValue = () => {
+        let total = 0
+        products.forEach(product => {
+            total += (product.qty * product.precio)
+        })
+        setValueTotal(total);
+    }
 
     const getQtyProducts = () => {
         let qty = 0;
@@ -20,7 +29,9 @@ const CustomProvider = ({children }) => {
 
     useEffect(() => {
         getQtyProducts();
+        getTotalValue();
     }, [products])
+    
 
     const addProduct = (product) => {
         if (isInCart(product.id)){
@@ -46,11 +57,12 @@ const CustomProvider = ({children }) => {
     const clear = () => {
         setProducts([]);
         setQtyProducts(0);
+        setValueTotal(0);
     }
 
 
   return (
-    <Provider value={{products, addProduct, deleteProduct, clear, qtyProducts}}>
+    <Provider value={{products, addProduct, deleteProduct, clear, qtyProducts, valueTotal}}>
     {children }
     </Provider>
   )

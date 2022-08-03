@@ -1,29 +1,51 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
-import objetos from "../data/objetos";
+//import objetos from "../data/objetos";
 import BounceLoader from 'react-spinners/BounceLoader'
-//import { useParams } from "react-router-dom";
+import {db} from "../firebase/firebase";
+import {getDocs, collection, query, where} from "firebase/firestore"
+import { useParams } from "react-router-dom";
 
 
-const promesa = new Promise((res, rej) => {
-
-    setTimeout(() => {
-      res(objetos);
-    }, 2000);
-  });
 
 const ItemListContainer = ({greeting}) => {
-
+  
   const [objetosList, setObjetosList] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const {categoryID} = useParams();
+
   useEffect(() => {
     setLoading(true);
+    const productCollection = collection(db, 'productos');
+    const q = query(productCollection, where('categoryID', '==', 'categoryID'))
+    getDocs(productCollection)
+    .then(result => {
+     const lista = result.docs.map (doc => {
+        
+        return {
+          id: doc.id,
+          ...doc.data(),
+        }
+      })
+      setObjetosList(lista);
+      })
+    .finally(() => setLoading(false))
+
+   /* 
+   const promesa = new Promise((res, rej) => {
+
+    setTimeout(() => {
+      res(lista);
+    }, 2000);
+  });
+
+   setLoading(true);
     promesa.then((response) => {
       setLoading(false);
       setObjetosList(response);
 
-    });
+    });*/
   }, []);
 
   if (loading) {
