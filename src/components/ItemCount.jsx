@@ -3,9 +3,7 @@ import {BiPlus, BiMinus} from 'react-icons/bi'
 
 const  ItemCount = ({stock, initial, onAdd}) => {
     const [count, setcount] = useState(initial)
-
-
-
+  
     const suma = () => {
         if (count < stock) {
             setcount(count + 1)

@@ -11,37 +11,39 @@ export const ItemDetail = ({productos}) => {
   const { addProduct } = useContext(contexto);
 
   const onAdd = (count) => {
-    addProduct({...productos, qty: count});
+    addProduct({...productos, stock: count});
     setfinalized(true);
   }
   
   return (
-    <div className= 'flex flex-col max-w-sm w-4/12 rounded overflow-hidden shadow-lg m-3 hover:bg-blue-100 justify-items-center items-center'>
-      <img className='resize w-10'src={productos.img}/>
-      <div className='px-3 py-3'> {productos.nombre} </div>
-          <div className='font-bold text-xl m-a text-center'>
-            
-            {productos.precio}
-            
+    <div className= 'flex flex-col rounded overflow-hidden shadow-lg m-3 hover:bg-blue-100 justify-items-center items-center'>
+      <img className='w-40'src={productos.img}/>
+      <div className='px-3 py-3 font-bold '> {productos.nombre} </div>
+          <div className='text-xl m-a text-center'>
+            $ {productos.precio} .-
+          </div>
+          <div className='text-xl m-a text-center'>
+            Stock: {productos.stock} botellas.-
+          </div>  
             <p className='text-gray-700 text-base'>
               
               {productos.descrip}
               
             </p>
-      </div>
+      
       <div className='px-6 py-4'>
 
         {finalized
               ? 
-              <>
+              <div className='flex justify-center'>
                 <Link to="/cart">
-                <button className='rounded my-2 mx-12 px-2 pb-0.5 bg-slate-800 text-white'>Finalizar compra</button>
+                <button className='rounded mb-2 mr-2 px-2 pb-0.5 bg-slate-800 text-white'>Finalizar compra</button>
                 </Link>
                 <Link to="/Categorias/Productos">
-                <button className='rounded px-2 mx-8 pb-0.5 bg-slate-800 text-white'>Continuar Comprando</button>
+                <button className='rounded px-2 pb-0.5 bg-slate-800 text-white'>Continuar Comprando</button>
                 </Link>
-              </>
-              : <ItemCount initial={1} stock={10} onAdd={onAdd} />}
+              </div>
+              : <ItemCount initial={1} stock={productos.stock} onAdd={onAdd} />}
 
           
         
@@ -50,5 +52,3 @@ export const ItemDetail = ({productos}) => {
 
     )
 }
-
-// export default ItemDetail

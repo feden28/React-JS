@@ -13,18 +13,18 @@ const CustomProvider = ({children }) => {
     const getTotalValue = () => {
         let total = 0
         products.forEach(product => {
-            total += (product.qty * product.precio)
+            total += (product.stock * product.precio)
         })
         setValueTotal(total);
     }
 
     const getQtyProducts = () => {
-        let qty = 0;
+        let stock = 0;
         
         products.forEach(product => {
-            qty += product.qty;   
+            stock += product.stock;   
         })
-        setQtyProducts(qty);
+        setQtyProducts(stock);
     }
 
     useEffect(() => {
@@ -38,7 +38,7 @@ const CustomProvider = ({children }) => {
             const found = products.find(p => p.id === product.id);
             const index = products.indexOf(found)
             const aux = [...products];
-            aux[index].qty += product.qty;
+            aux[index].stock += product.stock;
             setProducts(aux);
         } else {
             setProducts([...products, product])

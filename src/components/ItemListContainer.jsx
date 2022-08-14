@@ -13,12 +13,18 @@ const ItemListContainer = ({greeting}) => {
   const [objetosList, setObjetosList] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const {categoryID} = useParams();
+  const {categoriaSelec } = useParams();
 
   useEffect(() => {
+
+   
+    const productCollection = categoriaSelec
+      ? query(collection(db, 'productos'), where('category', '==', categoriaSelec))
+      : collection(db, 'productos');
+
     setLoading(true);
-    const productCollection = collection(db, 'productos');
-    const q = query(productCollection, where('categoryID', '==', 'categoryID'))
+   // const productCollection = collection(db, 'productos');
+    //const q = query(productCollection, where('categoryID', '==', 'categoryID'))
     getDocs(productCollection)
     .then(result => {
      const lista = result.docs.map (doc => {
@@ -46,7 +52,7 @@ const ItemListContainer = ({greeting}) => {
       setObjetosList(response);
 
     });*/
-  }, []);
+  }, [categoriaSelec]);
 
   if (loading) {
     return (
