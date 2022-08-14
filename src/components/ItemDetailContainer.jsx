@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import {ItemDetail} from './ItemDetail'
-import objetos from "../data/objetos";
 import DotLoader from "react-spinners/DotLoader"
 import { useParams } from "react-router-dom"
 import { db } from '../firebase/firebase';
